@@ -1,0 +1,11 @@
+User:    target.c:957 target_arch_state(): target state: halted
+User:    armv4_5.c:307 armv4_5_arch_state(): target halted in ARM state due to debug request, current mode: System
+cpsr: 0x8000005f pc: 0x000017f0
+User:    target.c:957 target_arch_state(): target state: halted
+User:    armv4_5.c:307 armv4_5_arch_state(): target halted in ARM state due to debug request, current mode: System
+cpsr: 0x8000005f pc: 0x000017f0
+User:    target.c:957 target_arch_state(): target state: halted
+User:    armv4_5.c:307 armv4_5_arch_state(): target halted in ARM state due to debug request, current mode: System
+cpsr: 0x8000005f pc: 0x000017ec
+Error:   ft2232.c:174 ft2232_write(): FT_Write returned: 10
+Error:   ft2232.c:404 ft2232_send_and_recv(): couldn't write MPSSE commands to FT2232

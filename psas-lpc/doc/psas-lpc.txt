@@ -1,0 +1,52 @@
+
+
+2008/06/25 10:12:06
+
+
+psas-lpc directory contains sources and library
+development tools for libpsaslpc. This is an attempt
+to build a consitent development across mulitple sensor
+nodes.
+
+src:
+This directory holds the sources.
+ include:
+   include files for sources.
+
+
+doc:
+Directory for documetns
+
+
+lib:
+Directory for library. libpsaslpc
+
+
+
+These are common functions for LPC2148 programming.
+
+pll.c: functions for pll
+
+interrupts.c: functions for interrupt management.
+
+mam.c : functions for mam module.
+
+
+crt.s : common boot loader/code
+
+
+
+
+helpers.h: extra C macros
+
+debug.h:  assert routines for debugging
+
+types.h: common types for lpc dev
+
+lpc214x.h: definitions for register addresses on lpc2148
+
+
+
+
+
+
