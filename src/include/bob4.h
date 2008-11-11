@@ -19,15 +19,25 @@
  * BOB-4H & BOB-4S Application Guide
  */
 
+#define FONT_SET_8X13            "[1z"
+#define FONT_SET_6X10            "[4z"
+
+#define CLEAR_ATTRIBUTES         "[0m"
+
+
 #define CLEAR_SCREEN             "[2J"
 
+#define MOVE_CURSOR_RIGHT_ONE    "[1C"
+#define MOVE_CURSOR_RIGHT_TEN    "[10C"
+#define MOVE_CURSOR_RIGHT_TWENTY "[20C"
 
 #define MOVE_CURSOR_DOWN_ONE     "[1B"
 #define MOVE_CURSOR_DOWN_FIVE    "[5B"
 
-#define MOVE_UPPER_LEFT          "[5H"
+#define MOVE_UPPER_LEFT          "[0;0H"
 #define MOVE_UPPER_RIGHT         "[5H[40C"
 
+#define REPORT_CURSOR_POSITION   "[6n"
 
 /*
 #define MOVE_CURSOR_UP_ONE       [1A
@@ -40,7 +50,7 @@
 #define MOVE_CURSOR_LEFT_FIVE    [5D 
 
 #define MOVE_UPPER_LEFT          [5H
-#define MOVE_UPPER_RIGHT         [5H[25C
+#define MOVE_UPPER_RIGHT         [50;0H[10C
 */
 
 

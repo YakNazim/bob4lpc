@@ -1,9 +1,9 @@
 User:    target.c:957 target_arch_state(): target state: halted
 User:    armv4_5.c:307 armv4_5_arch_state(): target halted in ARM state due to debug request, current mode: System
-cpsr: 0x800000df pc: 0x000018a8
+cpsr: 0x800000df pc: 0x00001a5c
 User:    target.c:957 target_arch_state(): target state: halted
 User:    armv4_5.c:307 armv4_5_arch_state(): target halted in ARM state due to debug request, current mode: Supervisor
-cpsr: 0x00000013 pc: 0x000018a8
+cpsr: 0x00000013 pc: 0x00001a5c
 User:    target.c:957 target_arch_state(): target state: halted
 User:    armv4_5.c:307 armv4_5_arch_state(): target halted in ARM state due to debug request, current mode: System
-cpsr: 0x800000df pc: 0x000019ac
+cpsr: 0x800000df pc: 0x00001a54

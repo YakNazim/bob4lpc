@@ -3,6 +3,8 @@
  * bob4.c
  */
 
+#include <string.h>
+
 
 #include "./include/bob4.h"
 
@@ -17,7 +19,8 @@
 
 #include "bob4.h"
 
-
+#define BUFFSIZE 10
+#define MAXTIMER 1000000000
 /* Emacs note: ctrl-q ESC. 'quoted-insert'
    vim note:   ctl-v char */
 
@@ -44,34 +47,80 @@
 char* PSAS_test="Q[2J[6zPSAS[1zPortland State Aerospace Society[170;100.r[35;0;360)r[1#r[170;100.r[35;0;360)r[3/r[145;100.r[10;0;360)r[0#r[135;65.r[135;135-r[/r[100;100.r[170;100-r[/r[1z[15;15H[5mhttp://psas.pdx.edu[0mR[8v[1v";
 
 int main() {
+    unsigned int i;
 
     unsigned int timer0_val = 0;
     unsigned int timer1_val = 0;
 
-    static char buf[32] = {0};
+    // Initialize the system
+    initialize();
 
+    serial_putstring(CLEAR_ATTRIBUTES);
+    serial_putstring(CLEAR_SCREEN);
+    serial_putstring(FONT_SET_8X13);
+    serial_putstring(CLEAR_SCREEN);
 
+//    command doesn't work?
+    serial_putstring(REPORT_CURSOR_POSITION);
+   waitCount(1000000);
+   waitCount(1000000);
+    serial_putstring(CLEAR_SCREEN);
+    serial_putstring("Hello");
+    T0TC = 0 ;
+    T1TC = 0 ;
+    waitCount(1000000);
+    waitCount(1000000);
+    waitCount(1000000);
+    serial_putstring(CLEAR_SCREEN);
+    serial_putstring(MOVE_UPPER_LEFT);
+
+    waitCount(1000000);
+    waitCount(1000000);
     while (1) {
-        // capture timer values
+    
+
+	if (timer0_val > MAXTIMER) { 
+               T0TC = 0 ; 
+	       serial_putstring(CLEAR_SCREEN);
+	       serial_putstring("Reset timer");
+	       waitCount(1000000);
+	       waitCount(1000000);
+	       serial_putstring(CLEAR_SCREEN);
+	       serial_putstring(MOVE_UPPER_LEFT);
+	       waitCount(1000000);
+               waitCount(1000000);
+          }
+	if (timer1_val > MAXTIMER) { 
+              T1TC = 0 ;   
+               serial_putstring(CLEAR_SCREEN);
+	       serial_putstring("Reset timer");
+	       waitCount(1000000);
+	       waitCount(1000000);
+	       serial_putstring(CLEAR_SCREEN);
+	       serial_putstring(MOVE_UPPER_LEFT);
+	       waitCount(1000000);
+               waitCount(1000000);
+
+         }
+    // capture timer values
         timer0_val = T0TC;
         timer1_val = T1TC;
-
-        // Initialize the system
-        initialize();
-        serial_putstring(CLEAR_SCREEN);
+//        serial_putstring(CLEAR_SCREEN);
         serial_putstring(MOVE_UPPER_LEFT);
-//        serial_putstring( itoa(timer0_val,10) );
-
-	itoa(timer0_val,&buf);
-        serial_putstring( buf  );
-        serial_putstring(MOVE_UPPER_RIGHT);
-	itoa(timer1_val,&buf);
-        serial_putstring( buf  );
-
-	//  serial_putstring( itoa(timer1_val,&buf) );
 
 
-        waitCount(1000000);    
+        serial_putstring( itoa(timer0_val,10) );
+	
+	for(i=0 ; i<15; ++i) {
+        serial_putstring(MOVE_CURSOR_RIGHT_ONE);
+        }
+//        serial_putstring(MOVE_CURSOR_RIGHT_TEN);
+
+//        serial_putstring(MOVE_CURSOR_RIGHT_TWENTY);
+
+        serial_putstring( itoa(timer1_val,10));
+	// waitCount(500000);
+	//     waitCount(1000000);
 	//   waitCount(1000000);
 	//    waitCount(1000000);
         //      serial_putstring(PSAS_test);
@@ -108,8 +157,8 @@ void initialize(void)  {
     ENABLE_TIMER0;
     ENABLE_TIMER1;
 
-    SET_PRESCALE0(0);
-    SET_PRESCALE1(100);            // run timer 1 at 1/100 of timer 0
+    SET_PRESCALE0(1000000);
+    SET_PRESCALE1(200);            // run timer 1 at 1/100 of timer 0
 
     // bob4 board wants 9600 8n1
     // 48Mhz PCLK, divisor is 0x0138 for 9600

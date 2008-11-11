@@ -13,7 +13,13 @@ Archive member included because of file (symbol)
 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
                               ./bob4.o (enable_leds)
 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
-                              /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o) (strlen)
+                              /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o) (strlen)
+/home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_divsi3.o)
+                              /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o) (__divsi3)
+/home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_modsi3.o)
+                              /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o) (__modsi3)
+/home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_dvmd_tls.o)
+                              /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_divsi3.o) (__div0)
 
 Memory Configuration
 
@@ -38,109 +44,125 @@ LOAD /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a
 startup
  *(.startup)
 
-.text           0x0000000000000000     0x1b2c
+.text           0x0000000000000000     0x1e48
  *(.text)
  .text          0x0000000000000000       0xd8 ./crt.o
                 0x0000000000000000                _startup
                 0x0000000000000040                Reset_Handler
- .text          0x00000000000000d8      0x1e8 ./bob4.o
-                0x0000000000000220                TIMER0_Handler
-                0x00000000000002ac                UNDEF_Routine
-                0x0000000000000298                SWI_Routine
-                0x0000000000000284                FIQ_Routine
+ .text          0x00000000000000d8      0x3b8 ./bob4.o
+                0x00000000000003f0                TIMER0_Handler
+                0x000000000000047c                UNDEF_Routine
+                0x0000000000000468                SWI_Routine
+                0x0000000000000454                FIQ_Routine
                 0x00000000000000d8                main
-                0x0000000000000270                IRQ_Routine
-                0x000000000000018c                initialize
- .text          0x00000000000002c0      0x2f4 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(pll.o)
-                0x0000000000000540                read_PLL1STAT
-                0x000000000000056c                write_APBDIV
-                0x00000000000002c0                pll0_feed
-                0x0000000000000514                read_PLL0STAT
-                0x0000000000000404                pll1_feed
-                0x0000000000000454                pll1_run
-                0x0000000000000310                pll0_run
- .text          0x00000000000005b4      0x1e8 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
-                0x00000000000005b4                reverse
-                0x0000000000000674                itoa
- .text          0x000000000000079c       0xcc /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
-                0x000000000000079c                write_MAM
-                0x0000000000000844                read_MAMTIM
-                0x0000000000000820                read_MAMCR
- .text          0x0000000000000868      0x290 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
-                0x000000000000094c                serial_getline
-                0x0000000000000a08                serial_putchar
-                0x0000000000000868                serial0Init
-                0x0000000000000a78                serial_putstring
-                0x00000000000009c8                serial_getchar
- .text          0x0000000000000af8      0xa18 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
-                0x00000000000011bc                disableRTC_INT
-                0x000000000000146c                writeIntEnable
-                0x000000000000108c                enableTIMER1_INT
-                0x0000000000000b74                restoreIRQ
-                0x0000000000001114                disableTIMER1_INT
-                0x00000000000011dc                enableEINT0
-                0x0000000000000c30                enableFIQ
-                0x00000000000014e0                readAndClearSoftInt
-                0x0000000000000cb4                update_VIC_table
-                0x00000000000012f0                disableEINT0
-                0x0000000000000bf8                disableFIQ
-                0x000000000000144c                readIntEnable
-                0x00000000000014c0                clearSoftInt
-                0x0000000000001494                readAndClearIntEnable
-                0x0000000000000fe4                enableTIMER0_INT
-                0x000000000000142c                clearIntEnable
-                0x0000000000000fc4                disableWATCHDOG_INT
-                0x000000000000140c                disableEINT2
-                0x0000000000000f54                enableWATCHDOG_INT
-                0x0000000000001134                enableRTC_INT
-                0x0000000000000bc0                enableIRQ
-                0x0000000000000c68                restoreFIQ
-                0x0000000000000af8                disableIRQ
-                0x000000000000106c                disableTIMER0_INT
-                0x0000000000001310                enableEINT2
- .text          0x0000000000001510      0x4ac /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
-                0x00000000000016b8                led1_on
-                0x0000000000001628                led2_invert
-                0x0000000000001578                disable_leds
-                0x000000000000184c                beep_low
-                0x00000000000015c4                led1_invert
-                0x000000000000173c                flash_led1
-                0x0000000000001978                waitCount
-                0x0000000000001710                led2_on
-                0x0000000000001868                beep_custom
-                0x000000000000168c                led1_off
-                0x00000000000017b8                flash_led2
-                0x0000000000001834                beep_high
-                0x0000000000001510                enable_leds
-                0x00000000000016e4                led2_off
- .text          0x00000000000019bc       0x68 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
-                0x00000000000019bc                strlen
+                0x0000000000000440                IRQ_Routine
+                0x0000000000000358                initialize
+ .text          0x0000000000000490      0x2f4 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(pll.o)
+                0x0000000000000710                read_PLL1STAT
+                0x000000000000073c                write_APBDIV
+                0x0000000000000490                pll0_feed
+                0x00000000000006e4                read_PLL0STAT
+                0x00000000000005d4                pll1_feed
+                0x0000000000000624                pll1_run
+                0x00000000000004e0                pll0_run
+ .text          0x0000000000000784       0xcc /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
+                0x0000000000000784                itoa
+ .text          0x0000000000000850       0xcc /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
+                0x0000000000000850                write_MAM
+                0x00000000000008f8                read_MAMTIM
+                0x00000000000008d4                read_MAMCR
+ .text          0x000000000000091c      0x290 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
+                0x0000000000000a00                serial_getline
+                0x0000000000000abc                serial_putchar
+                0x000000000000091c                serial0Init
+                0x0000000000000b2c                serial_putstring
+                0x0000000000000a7c                serial_getchar
+ .text          0x0000000000000bac      0xa18 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
+                0x0000000000001270                disableRTC_INT
+                0x0000000000001520                writeIntEnable
+                0x0000000000001140                enableTIMER1_INT
+                0x0000000000000c28                restoreIRQ
+                0x00000000000011c8                disableTIMER1_INT
+                0x0000000000001290                enableEINT0
+                0x0000000000000ce4                enableFIQ
+                0x0000000000001594                readAndClearSoftInt
+                0x0000000000000d68                update_VIC_table
+                0x00000000000013a4                disableEINT0
+                0x0000000000000cac                disableFIQ
+                0x0000000000001500                readIntEnable
+                0x0000000000001574                clearSoftInt
+                0x0000000000001548                readAndClearIntEnable
+                0x0000000000001098                enableTIMER0_INT
+                0x00000000000014e0                clearIntEnable
+                0x0000000000001078                disableWATCHDOG_INT
+                0x00000000000014c0                disableEINT2
+                0x0000000000001008                enableWATCHDOG_INT
+                0x00000000000011e8                enableRTC_INT
+                0x0000000000000c74                enableIRQ
+                0x0000000000000d1c                restoreFIQ
+                0x0000000000000bac                disableIRQ
+                0x0000000000001120                disableTIMER0_INT
+                0x00000000000013c4                enableEINT2
+ .text          0x00000000000015c4      0x4ac /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
+                0x000000000000176c                led1_on
+                0x00000000000016dc                led2_invert
+                0x000000000000162c                disable_leds
+                0x0000000000001900                beep_low
+                0x0000000000001678                led1_invert
+                0x00000000000017f0                flash_led1
+                0x0000000000001a2c                waitCount
+                0x00000000000017c4                led2_on
+                0x000000000000191c                beep_custom
+                0x0000000000001740                led1_off
+                0x000000000000186c                flash_led2
+                0x00000000000018e8                beep_high
+                0x00000000000015c4                enable_leds
+                0x0000000000001798                led2_off
+ .text          0x0000000000001a70       0x68 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
+                0x0000000000001a70                strlen
+ .text          0x0000000000001ad8      0x140 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_divsi3.o)
+                0x0000000000001ad8                __aeabi_idiv
+                0x0000000000001ad8                __divsi3
+                0x0000000000001c00                __aeabi_idivmod
+ .text          0x0000000000001c18       0xe4 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_modsi3.o)
+                0x0000000000001c18                __modsi3
+ .text          0x0000000000001cfc        0x4 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_dvmd_tls.o)
+                0x0000000000001cfc                __aeabi_ldiv0
+                0x0000000000001cfc                __div0
+                0x0000000000001cfc                __aeabi_idiv0
  *(.rodata)
- .rodata        0x0000000000001a24      0x108 ./bob4.o
+ .rodata        0x0000000000001d00      0x130 ./bob4.o
+ .rodata        0x0000000000001e30       0x18 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
  *(.rodata*)
  *(.glue_7)
- .glue_7        0x0000000000001b2c        0x0 ./crt.o
- .glue_7        0x0000000000001b2c        0x0 ./bob4.o
- .glue_7        0x0000000000001b2c        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(pll.o)
- .glue_7        0x0000000000001b2c        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
- .glue_7        0x0000000000001b2c        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
- .glue_7        0x0000000000001b2c        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
- .glue_7        0x0000000000001b2c        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
- .glue_7        0x0000000000001b2c        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
- .glue_7        0x0000000000001b2c        0x0 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
+ .glue_7        0x0000000000001e48        0x0 ./crt.o
+ .glue_7        0x0000000000001e48        0x0 ./bob4.o
+ .glue_7        0x0000000000001e48        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(pll.o)
+ .glue_7        0x0000000000001e48        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
+ .glue_7        0x0000000000001e48        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
+ .glue_7        0x0000000000001e48        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
+ .glue_7        0x0000000000001e48        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
+ .glue_7        0x0000000000001e48        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
+ .glue_7        0x0000000000001e48        0x0 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
+ .glue_7        0x0000000000001e48        0x0 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_divsi3.o)
+ .glue_7        0x0000000000001e48        0x0 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_modsi3.o)
+ .glue_7        0x0000000000001e48        0x0 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_dvmd_tls.o)
  *(.glue_7t)
- .glue_7t       0x0000000000001b2c        0x0 ./crt.o
- .glue_7t       0x0000000000001b2c        0x0 ./bob4.o
- .glue_7t       0x0000000000001b2c        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(pll.o)
- .glue_7t       0x0000000000001b2c        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
- .glue_7t       0x0000000000001b2c        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
- .glue_7t       0x0000000000001b2c        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
- .glue_7t       0x0000000000001b2c        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
- .glue_7t       0x0000000000001b2c        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
- .glue_7t       0x0000000000001b2c        0x0 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
-                0x0000000000001b2c                _etext = .
+ .glue_7t       0x0000000000001e48        0x0 ./crt.o
+ .glue_7t       0x0000000000001e48        0x0 ./bob4.o
+ .glue_7t       0x0000000000001e48        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(pll.o)
+ .glue_7t       0x0000000000001e48        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
+ .glue_7t       0x0000000000001e48        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
+ .glue_7t       0x0000000000001e48        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
+ .glue_7t       0x0000000000001e48        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
+ .glue_7t       0x0000000000001e48        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
+ .glue_7t       0x0000000000001e48        0x0 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
+ .glue_7t       0x0000000000001e48        0x0 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_divsi3.o)
+ .glue_7t       0x0000000000001e48        0x0 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_modsi3.o)
+ .glue_7t       0x0000000000001e48        0x0 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_dvmd_tls.o)
+                0x0000000000001e48                _etext = .
 
-.data           0x0000000040000200        0x4 load address 0x0000000000001b2c
+.data           0x0000000040000200        0x4 load address 0x0000000000001e48
                 0x0000000040000200                _data = .
  *(.data)
  .data          0x0000000040000200        0x0 ./crt.o
@@ -153,59 +175,74 @@ startup
  .data          0x0000000040000204        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
  .data          0x0000000040000204        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
  .data          0x0000000040000204        0x0 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
+ .data          0x0000000040000204        0x0 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_divsi3.o)
+ .data          0x0000000040000204        0x0 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_modsi3.o)
+ .data          0x0000000040000204        0x0 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_dvmd_tls.o)
                 0x0000000040000204                _edata = .
 
 .bss            0x0000000040000204       0x98
                 0x0000000040000204                _bss_start = .
  *(.bss)
  .bss           0x0000000040000204        0x0 ./crt.o
- .bss           0x0000000040000204       0x20 ./bob4.o
- .bss           0x0000000040000224        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(pll.o)
- .bss           0x0000000040000224        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
+ .bss           0x0000000040000204        0x0 ./bob4.o
+ .bss           0x0000000040000204        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(pll.o)
+ .bss           0x0000000040000204       0x20 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
  .bss           0x0000000040000224        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
  .bss           0x0000000040000224       0x78 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
  .bss           0x000000004000029c        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
  .bss           0x000000004000029c        0x0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
  .bss           0x000000004000029c        0x0 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
+ .bss           0x000000004000029c        0x0 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_divsi3.o)
+ .bss           0x000000004000029c        0x0 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_modsi3.o)
+ .bss           0x000000004000029c        0x0 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_dvmd_tls.o)
                 0x000000004000029c                . = ALIGN (0x4)
                 0x000000004000029c                _bss_end = .
                 0x000000004000029c                _end = .
 OUTPUT(bob4.out elf32-littlearm)
 
-.debug_line     0x0000000000000000      0x4da
+.debug_line     0x0000000000000000      0x6b6
  .debug_line    0x0000000000000000       0x5f ./crt.o
- .debug_line    0x000000000000005f       0x5f ./bob4.o
- .debug_line    0x00000000000000be       0x85 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(pll.o)
- .debug_line    0x0000000000000143       0x50 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
- .debug_line    0x0000000000000193       0x5b /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
- .debug_line    0x00000000000001ee       0x81 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
- .debug_line    0x000000000000026f      0x117 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
- .debug_line    0x0000000000000386       0x89 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
- .debug_line    0x000000000000040f       0xcb /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
+ .debug_line    0x000000000000005f       0x86 ./bob4.o
+ .debug_line    0x00000000000000e5       0x85 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(pll.o)
+ .debug_line    0x000000000000016a       0x41 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
+ .debug_line    0x00000000000001ab       0x5b /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
+ .debug_line    0x0000000000000206       0x81 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
+ .debug_line    0x0000000000000287      0x117 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
+ .debug_line    0x000000000000039e       0x89 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
+ .debug_line    0x0000000000000427       0xcb /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
+ .debug_line    0x00000000000004f2       0xb3 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_divsi3.o)
+ .debug_line    0x00000000000005a5       0x96 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_modsi3.o)
+ .debug_line    0x000000000000063b       0x7b /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_dvmd_tls.o)
 
-.debug_info     0x0000000000000000     0x147d
+.debug_info     0x0000000000000000     0x1677
  .debug_info    0x0000000000000000       0x4b ./crt.o
- .debug_info    0x000000000000004b      0x1ce ./bob4.o
- .debug_info    0x0000000000000219      0x26a /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(pll.o)
- .debug_info    0x0000000000000483      0x1a7 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
- .debug_info    0x000000000000062a      0x140 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
- .debug_info    0x000000000000076a      0x2cf /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
- .debug_info    0x0000000000000a39      0x6d0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
- .debug_info    0x0000000000001109      0x2a1 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
- .debug_info    0x00000000000013aa       0xd3 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
+ .debug_info    0x000000000000004b      0x221 ./bob4.o
+ .debug_info    0x000000000000026c      0x26a /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(pll.o)
+ .debug_info    0x00000000000004d6      0x174 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
+ .debug_info    0x000000000000064a      0x140 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
+ .debug_info    0x000000000000078a      0x2cf /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
+ .debug_info    0x0000000000000a59      0x6d0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
+ .debug_info    0x0000000000001129      0x2a1 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
+ .debug_info    0x00000000000013ca       0xd3 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
+ .debug_info    0x000000000000149d       0x9e /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_divsi3.o)
+ .debug_info    0x000000000000153b       0x9e /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_modsi3.o)
+ .debug_info    0x00000000000015d9       0x9e /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_dvmd_tls.o)
 
-.debug_abbrev   0x0000000000000000      0x586
+.debug_abbrev   0x0000000000000000      0x5ad
  .debug_abbrev  0x0000000000000000       0x14 ./crt.o
- .debug_abbrev  0x0000000000000014       0x8f ./bob4.o
- .debug_abbrev  0x00000000000000a3       0x9c /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(pll.o)
- .debug_abbrev  0x000000000000013f       0x7b /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
- .debug_abbrev  0x00000000000001ba       0x78 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
- .debug_abbrev  0x0000000000000232       0xba /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
- .debug_abbrev  0x00000000000002ec      0x177 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
- .debug_abbrev  0x0000000000000463       0x91 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
- .debug_abbrev  0x00000000000004f4       0x92 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
+ .debug_abbrev  0x0000000000000014       0x7d ./bob4.o
+ .debug_abbrev  0x0000000000000091       0x9c /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(pll.o)
+ .debug_abbrev  0x000000000000012d       0x78 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
+ .debug_abbrev  0x00000000000001a5       0x78 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
+ .debug_abbrev  0x000000000000021d       0xba /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
+ .debug_abbrev  0x00000000000002d7      0x177 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
+ .debug_abbrev  0x000000000000044e       0x91 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
+ .debug_abbrev  0x00000000000004df       0x92 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
+ .debug_abbrev  0x0000000000000571       0x14 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_divsi3.o)
+ .debug_abbrev  0x0000000000000585       0x14 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_modsi3.o)
+ .debug_abbrev  0x0000000000000599       0x14 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_dvmd_tls.o)
 
-.debug_aranges  0x0000000000000000      0x120
+.debug_aranges  0x0000000000000000      0x180
  .debug_aranges
                 0x0000000000000000       0x20 ./crt.o
  .debug_aranges
@@ -224,45 +261,53 @@ OUTPUT(bob4.out elf32-littlearm)
                 0x00000000000000e0       0x20 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
  .debug_aranges
                 0x0000000000000100       0x20 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
+ .debug_aranges
+                0x0000000000000120       0x20 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_divsi3.o)
+ .debug_aranges
+                0x0000000000000140       0x20 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_modsi3.o)
+ .debug_aranges
+                0x0000000000000160       0x20 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_dvmd_tls.o)
 
-.debug_frame    0x0000000000000000      0x8b8
+.debug_frame    0x0000000000000000      0x8e8
  .debug_frame   0x0000000000000000       0xf8 ./bob4.o
  .debug_frame   0x00000000000000f8       0xf0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(pll.o)
- .debug_frame   0x00000000000001e8       0x50 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
- .debug_frame   0x0000000000000238       0x70 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
- .debug_frame   0x00000000000002a8       0xb0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
- .debug_frame   0x0000000000000358      0x370 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
- .debug_frame   0x00000000000006c8      0x1d0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
- .debug_frame   0x0000000000000898       0x20 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
+ .debug_frame   0x00000000000001e8       0x30 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
+ .debug_frame   0x0000000000000218       0x70 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
+ .debug_frame   0x0000000000000288       0xb0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
+ .debug_frame   0x0000000000000338      0x370 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
+ .debug_frame   0x00000000000006a8      0x1d0 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
+ .debug_frame   0x0000000000000878       0x20 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
+ .debug_frame   0x0000000000000898       0x28 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_divsi3.o)
+ .debug_frame   0x00000000000008c0       0x28 /home/kwilson/LPCDEV/LPC/2148/lib/gcc/arm-elf/4.2.3/libgcc.a(_modsi3.o)
 
-.debug_loc      0x0000000000000000      0xad0
+.debug_loc      0x0000000000000000      0xaa6
  .debug_loc     0x0000000000000000      0x126 ./bob4.o
  .debug_loc     0x0000000000000126      0x126 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(pll.o)
- .debug_loc     0x000000000000024c       0x54 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
- .debug_loc     0x00000000000002a0       0x7e /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
- .debug_loc     0x000000000000031e       0xd2 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
- .debug_loc     0x00000000000003f0      0x46e /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
- .debug_loc     0x000000000000085e      0x24c /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
- .debug_loc     0x0000000000000aaa       0x26 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
+ .debug_loc     0x000000000000024c       0x2a /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
+ .debug_loc     0x0000000000000276       0x7e /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
+ .debug_loc     0x00000000000002f4       0xd2 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
+ .debug_loc     0x00000000000003c6      0x46e /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
+ .debug_loc     0x0000000000000834      0x24c /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
+ .debug_loc     0x0000000000000a80       0x26 /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
 
 .debug_pubnames
-                0x0000000000000000      0x4bf
+                0x0000000000000000      0x4b3
  .debug_pubnames
                 0x0000000000000000       0x8d ./bob4.o
  .debug_pubnames
                 0x000000000000008d       0x7d /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(pll.o)
  .debug_pubnames
-                0x000000000000010a       0x27 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
+                0x000000000000010a       0x1b /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(helpers.o)
  .debug_pubnames
-                0x0000000000000131       0x3f /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
+                0x0000000000000125       0x3f /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(mam.o)
  .debug_pubnames
-                0x0000000000000170       0x70 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
+                0x0000000000000164       0x70 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(lpc-serial.o)
  .debug_pubnames
-                0x00000000000001e0      0x1e6 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
+                0x00000000000001d4      0x1e6 /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(interrupts.o)
  .debug_pubnames
-                0x00000000000003c6       0xdc /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
+                0x00000000000003ba       0xdc /home/kwilson/PSASGIT/bob4/psas-lpc/lib/libpsaslpc.a(olimex.o)
  .debug_pubnames
-                0x00000000000004a2       0x1d /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
+                0x0000000000000496       0x1d /home/kwilson/LPCDEV/LPC/2148/arm-elf/lib/libc.a(lib_a-strlen.o)
 
 .comment        0x0000000000000000       0x90
  .comment       0x0000000000000000       0x12 ./bob4.o
