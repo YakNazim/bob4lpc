@@ -23,9 +23,11 @@
 #define FONT_SET_6X10            "[4z"
 
 #define CLEAR_ATTRIBUTES         "[0m"
-
-
 #define CLEAR_SCREEN             "[2J"
+
+#define START_CRAWL              "[1;180;1;70t"
+#define STOP_CRAWL              "[0t"
+
 
 #define MOVE_CURSOR_RIGHT_ONE    "[1C"
 #define MOVE_CURSOR_RIGHT_TEN    "[10C"
