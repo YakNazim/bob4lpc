@@ -25,6 +25,10 @@
 #define MOVE_CURSOR_DOWN_ONE     "[1B"
 #define MOVE_CURSOR_DOWN_FIVE    "[5B"
 
+#define MOVE_UPPER_LEFT          "[5H"
+#define MOVE_UPPER_RIGHT         "[5H[40C"
+
+
 /*
 #define MOVE_CURSOR_UP_ONE       [1A
 #define MOVE_CURSOR_UP_FIVE      [5A 
@@ -34,6 +38,9 @@
 
 #define MOVE_CURSOR_LEFT_ONE     [1D
 #define MOVE_CURSOR_LEFT_FIVE    [5D 
+
+#define MOVE_UPPER_LEFT          [5H
+#define MOVE_UPPER_RIGHT         [5H[25C
 */
 
 
