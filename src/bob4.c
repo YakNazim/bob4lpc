@@ -27,8 +27,6 @@
 /* Emacs note: ctrl-q ESC. 'quoted-insert'
    vim note:   ctl-v char */
 
-
-
 /*
 
 
